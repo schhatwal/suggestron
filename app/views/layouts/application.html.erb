@@ -8,6 +8,7 @@
 </head>
 <body>
 <% if logged_in? %>
+  <%= "Welcome #{current_user.username}" %>
   <%= link_to "Logout", {controller: "logins", action: "destroy"}, method: "delete" %>
 <% end %>
 <p style="background-color: #cfc">

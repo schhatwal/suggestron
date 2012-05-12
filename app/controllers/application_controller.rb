@@ -1,12 +1,14 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
-  helper_method :logged_in?
+  helper_method :logged_in?, :current_user
   
   protected
-  def logged_in?
-    session[:current_user_id].present?
-    
+  def current_user
+    @current_user ||= User.find_by_id(session[:current_user_id])
   end
   
+  def logged_in?
+    !current_user.nil?
+  end
 end

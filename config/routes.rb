@@ -1,5 +1,9 @@
 Suggestron::Application.routes.draw do
 
+  resources :votes
+
+  resources :topics
+
   resources :users
   
   delete "/logins" => "logins#destroy"

@@ -1,5 +1,11 @@
 Suggestron::Application.routes.draw do
+
   resources :users
+  
+  delete "/logins" => "logins#destroy"
+  resources :logins, :only => [:new, :create]
+  
+  root :to => "users#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

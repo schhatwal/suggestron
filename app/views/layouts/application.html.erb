@@ -7,7 +7,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<% if logged_in? %>
+  <%= link_to "Logout", {controller: "logins", action: "destroy"}, method: "delete" %>
+<% end %>
+<p style="background-color: #cfc">
+  <%= flash[:notice] %>
+</p>
 <%= yield %>
 
 </body>
